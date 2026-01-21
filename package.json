@@ -1,0 +1,36 @@
+{
+  "name": "lambda-durable-function-example",
+  "version": "0.1.0",
+  "bin": {
+    "lambda-durable-function-example": "dist/bin/lambda-durable-function-example.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "deploy": "cdk deploy --require-approval never",
+    "destroy": "cdk destroy"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.11",
+    "@types/jest": "^30",
+    "@types/node": "^24.10.1",
+    "aws-cdk": "2.1101.0",
+    "esbuild": "^0.27.2",
+    "jest": "^30",
+    "ts-jest": "^29",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.9.3"
+  },
+  "dependencies": {
+    "@aws-crypto/client-node": "^4.2.1",
+    "@aws-sdk/client-kms": "^3.972.0",
+    "@aws/durable-execution-sdk-js": "^1.0.1",
+    "aws-cdk-lib": "^2.234.1",
+    "constructs": "^10.0.0"
+  }
+}
