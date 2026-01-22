@@ -7,7 +7,7 @@ import type { Order, OrderInput } from './types';
 
 // Initialize a single KMS SerDer for all encryption
 // biome-ignore lint/suspicious/noExplicitAny: Generic serdes needs to work with any type
-const kmsSerDer = new KmsSerDes<any>();
+const kmsSerDes = new KmsSerDes<any>();
 
 async function randomPause(maxSeconds: number) {
   const sleepTime = Math.floor(Math.random() * maxSeconds * 1000);
@@ -57,7 +57,7 @@ export const handler = withDurableExecution(
         return createOrder(event);
       },
       {
-        serdes: kmsSerDer,
+        serdes: kmsSerDes,
       },
     );
 
@@ -71,7 +71,7 @@ export const handler = withDurableExecution(
         return sendEmail(order.customerId, order.id);
       },
       {
-        serdes: kmsSerDer,
+        serdes: kmsSerDes,
       },
     );
 
