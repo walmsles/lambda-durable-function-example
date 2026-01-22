@@ -13,7 +13,6 @@ interface SerdesContext {
 interface EncryptedPayload<T> {
   data: T;
   __encrypted_pii?: string;
-  __encryption_context?: Record<string, string>;
 }
 
 /**
@@ -96,10 +95,6 @@ export class FieldLevelKmsSerDes<T> implements Serdes<T> {
 
     if (encryptedPii) {
       payload.__encrypted_pii = encryptedPii;
-      payload.__encryption_context = {
-        entityId: context.entityId,
-        ...this.encryptionContext,
-      };
     }
 
     return JSON.stringify(payload);
@@ -145,7 +140,6 @@ export class FieldLevelKmsSerDes<T> implements Serdes<T> {
 
       // Remove the encryption metadata
       delete payload.__encrypted_pii;
-      delete payload.__encryption_context;
     }
 
     return payload as T;
