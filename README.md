@@ -1,6 +1,8 @@
 # Lambda Durable Function Encryption
 
-[![Serverless DNA](https://serverlessdna.com/strands/lambda/durable-function-encryption/hero-image.png)](https://serverlessdna.com/strands/lambda/durable-function-encryption)
+<a href="https://serverlessdna.com/strands/lambda/durable-function-encryption">
+<img src="https://serverlessdna.com/strands/lambda/durable-function-encryption/hero-image.png" alt="Serverless DNA" width="350">
+</a>
 
 This repository contains example implementations of custom SerDes (Serializer/Deserializer) classes for encrypting checkpoint data in AWS Lambda Durable Functions.
 
