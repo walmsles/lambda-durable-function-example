@@ -1,15 +1,27 @@
-# Welcome to your CDK TypeScript project
+# Lambda Durable Function Encryption
 
-You should explore the contents of this project. It demonstrates a CDK app with an instance of a stack (`LambdaDurableFunctionExampleStack`)
-which contains an Amazon SQS queue that is subscribed to an Amazon SNS topic.
+[![Serverless DNA](https://serverlessdna.com/strands/lambda/durable-function-encryption/hero-image.png)](https://serverlessdna.com/strands/lambda/durable-function-encryption)
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+This repository contains example implementations of custom SerDes (Serializer/Deserializer) classes for encrypting checkpoint data in AWS Lambda Durable Functions.
 
-## Useful commands
+📖 **Read the full article:** [Lambda Durable Functions - Keeping your Payloads Secure](https://serverlessdna.com/strands/lambda/durable-function-encryption)
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+## Overview
+
+Lambda Durable Functions automatically checkpoint your workflow state, but that data may contain sensitive information like credit card numbers or SSNs. This repo demonstrates three encryption approaches:
+
+- **KmsSerDes** - Full payload encryption using KMS directly
+- **FieldLevelKmsSerDes** - Selective field encryption with KMS (encrypts only specified fields)
+- **EnvelopeEncryptionSerDes** - Field-level encryption using AWS Encryption SDK with envelope encryption
+
+## Deployment
+
+```bash
+npm install
+cdk deploy
+```
+
+## Environment Variables
+
+- `KMS_KEY_ID` - KMS Key ID for direct KMS encryption
+- `KMS_KEY_ARN` - KMS Key ARN for envelope encryption
