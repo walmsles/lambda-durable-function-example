@@ -1,7 +1,7 @@
 # Lambda Durable Function Encryption
 
 <a href="https://serverlessdna.com/strands/lambda/durable-function-encryption">
-<img src="https://serverlessdna.com/strands/lambda/durable-function-encryption/hero-image.png" alt="Serverless DNA" width="350">
+<img src="https://serverlessdna.com/_next/image?url=%2Fstrands%2Flambda%2Fdurable-function-encryption%2Fhero-image.webp&w=640&q=75" alt="Serverless DNA" width="350">
 </a>
 
 This repository contains example implementations of custom SerDes (Serializer/Deserializer) classes for encrypting checkpoint data in AWS Lambda Durable Functions.
@@ -20,10 +20,7 @@ Lambda Durable Functions automatically checkpoint your workflow state, but that 
 
 ```bash
 npm install
-cdk deploy
+npm run deploy
 ```
 
-## Environment Variables
-
-- `KMS_KEY_ID` - KMS Key ID for direct KMS encryption
-- `KMS_KEY_ARN` - KMS Key ARN for envelope encryption
+Deployment assumes you are already using AWS CDK for your account and you have the AWS Cli installed with working credentials.  If you have not used CDK before you will need to bootstrap your account.  CDK Docs for doing this can be found [here](https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html).
